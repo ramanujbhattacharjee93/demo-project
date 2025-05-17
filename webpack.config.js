@@ -31,4 +31,9 @@ module.exports = {
   ],
   devtool: 'source-map',
   mode: 'production',
+  devServer: {
+    client: {
+      overlay: false,
+    },
+  },
 };
