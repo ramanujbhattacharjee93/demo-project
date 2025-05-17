@@ -1,4 +1,4 @@
-# React + TypeScript Project
+# React + TypeScript + Material UI Starter
 
 ## Getting Started
 
@@ -12,14 +12,12 @@ npm install
 ```
 
 ### Run Locally (Development)
-This project uses `webpack-dev-server` for local development with hot reloading:
 ```
 npm start
 ```
 This will open your app in the browser at `http://localhost:8080` by default.
 
 ### Build for Production
-To generate static files for deployment:
 ```
 npm run build
 ```
@@ -39,4 +37,4 @@ tsconfig.json
 ```
 
 ---
-Feel free to open issues or pull requests for improvements or questions!
+This project uses [Material UI](https://mui.com/) for UI components. Feel free to extend it for your needs!
