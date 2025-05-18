@@ -5,6 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const FacebookIcon = React.lazy(() => import('@mui/icons-material/Facebook'));
 const GoogleIcon = React.lazy(() => import('@mui/icons-material/Google'));
@@ -15,6 +16,19 @@ const courses = [
   { id: 2, title: 'Advanced TypeScript', description: 'Deep dive into TypeScript for scalable applications.' },
   { id: 3, title: 'UI Design with Material UI', description: 'Create beautiful UIs using Material UI.' },
 ];
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#90caf9',
+    },
+    background: {
+      default: '#121212',
+      paper: '#1e1e1e',
+    },
+  },
+});
 
 function SignUpForm() {
   const [checked, setChecked] = React.useState(false);
@@ -59,39 +73,41 @@ function SignUpForm() {
 
 function App() {
   return (
-    <Box>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Online Courses
+    <ThemeProvider theme={darkTheme}>
+      <Box>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+              Online Courses
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+        <Container maxWidth="md" sx={{ mt: 6 }}>
+          <Typography variant="h3" align="center" gutterBottom>
+            Welcome to Online Courses
           </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-      <Container maxWidth="md" sx={{ mt: 6 }}>
-        <Typography variant="h3" align="center" gutterBottom>
-          Welcome to Online Courses
-        </Typography>
-        <Typography variant="h6" align="center" color="text.secondary" paragraph>
-          Enroll in high-quality courses and boost your skills today!
-        </Typography>
-        <SignUpForm />
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, justifyContent: 'center', mt: 4 }}>
-          {courses.map((course) => (
-            <Card key={course.id} sx={{ width: 300, display: 'flex', flexDirection: 'column', m: 1 }}>
-              <CardContent>
-                <Typography variant="h5" gutterBottom>{course.title}</Typography>
-                <Typography variant="body2" color="text.secondary">{course.description}</Typography>
-              </CardContent>
-              <Box sx={{ flexGrow: 1 }} />
-              <Button variant="contained" color="primary" sx={{ m: 2 }}>
-                Enroll Now
-              </Button>
-            </Card>
-          ))}
-        </Box>
-      </Container>
-    </Box>
+          <Typography variant="h6" align="center" color="text.secondary" paragraph>
+            Enroll in high-quality courses and boost your skills today!
+          </Typography>
+          <SignUpForm />
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, justifyContent: 'center', mt: 4 }}>
+            {courses.map((course) => (
+              <Card key={course.id} sx={{ width: 300, display: 'flex', flexDirection: 'column', m: 1 }}>
+                <CardContent>
+                  <Typography variant="h5" gutterBottom>{course.title}</Typography>
+                  <Typography variant="body2" color="text.secondary">{course.description}</Typography>
+                </CardContent>
+                <Box sx={{ flexGrow: 1 }} />
+                <Button variant="contained" color="primary" sx={{ m: 2 }}>
+                  Enroll Now
+                </Button>
+              </Card>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+    </ThemeProvider>
   );
 }
 
