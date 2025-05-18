@@ -3,7 +3,7 @@
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v16 or later recommended)
+- Node.js (v18 or later recommended)
 - npm (comes with Node.js)
 
 ### Install Dependencies
@@ -22,6 +22,11 @@ This will open your app in the browser at `http://localhost:8080` by default.
 npm run build
 ```
 The output will be in the `dist/` folder.
+
+## Performance Optimization
+- This project uses Material UI and some icons, which can increase bundle size.
+- For production, consider using React.lazy and Suspense to lazy-load large components or icons.
+- See [Webpack Code Splitting](https://webpack.js.org/guides/code-splitting/) for more info.
 
 ## Project Structure
 ```
